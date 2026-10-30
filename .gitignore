@@ -1,0 +1,31 @@
+/target/
+**/*.rs.bk
+*.pdb
+
+# Local build artifacts
+/rsexec.exe
+*.exe
+!scripts/
+
+# Local-only research, lab output, and secrets
+/analysis/
+/lab-output/
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+*credentials*
+
+# IDE and editor
+.vs/
+.vscode/
+*.user
+*.suo
+*.swp
+*~
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

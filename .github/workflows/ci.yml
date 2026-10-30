@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.88"
+          components: clippy
+      - name: Test
+        run: cargo test --locked
+      - name: Clippy
+        run: cargo clippy --offline --all-targets -- -D warnings
+      - name: Release build
+        run: cargo build --locked --release
